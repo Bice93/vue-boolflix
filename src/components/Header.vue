@@ -9,9 +9,9 @@
               placeholder="Search"
               aria-label="Search"
               v-model="searchInput"
-              @keyup.enter="$emit('selectedFilm', searchInput)"
+              @keyup.enter="$emit('selected-film', searchInput)"
             />
-            <button class="btn btn-outline-success" type="submit" @click.prevent=''>
+            <button class="btn btn-outline-success" type="submit" @click.prevent="$emit('selectedFilm', searchInput)">
               Search
             </button>
           </form>
@@ -29,9 +29,9 @@ export default {
   },
 
   methods: {
-    log(string){
-      console.log(string);
-    },
+    // log(string){
+    //   console.log(string);
+    // },
   },
 };
 </script>
