@@ -2,8 +2,8 @@
   <main>
     <div class="container">
       <h1>Main</h1>
-      <CardElement v-for="(film, index) in films" 
-      :key="index"
+      <CardElement v-for="film in films" 
+      :key="film.id"
       :film="film"
        />
     </div>

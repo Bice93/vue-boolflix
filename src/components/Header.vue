@@ -8,8 +8,10 @@
               type="search"
               placeholder="Search"
               aria-label="Search"
+              v-model="searchInput"
+              @keyup.enter="$emit('selectedFilm', searchInput)"
             />
-            <button class="btn btn-outline-success" type="submit">
+            <button class="btn btn-outline-success" type="submit" @click.prevent=''>
               Search
             </button>
           </form>
@@ -19,7 +21,23 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: [
+    'searchFilm'
+  ],
+
+  data: function(){
+    return{
+      searchInput:'',
+    }
+  },
+
+  methods: {
+    log(string){
+      console.log(string);
+    },
+  },
+};
 </script>
 
 <style>

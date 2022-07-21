@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header :searchFilm="searchFilm" @selectedFilm="updateSearchFilm(searchInput)"/>
     <Main :films="films" />
   </div>
 </template>
@@ -20,14 +20,14 @@ export default {
   data: function() {
     return{
       films : [],
-      apiUrl : 'https://api.themoviedb.org/3/search/movie?api_key=d2c0643db92db08a509446619d6878b8&query=ritorno',
+      apiUrl : 'https://api.themoviedb.org/3/search/movie?api_key=d2c0643db92db08a509446619d6878b8&query=',
     }
   },
 
   methods:{
     //CHIAMATA ALL'API ATTRAVERSO AXIOS
   getFilms: function(){
-    axios.get(this.apiUrl)
+    axios.get(this.apiUrl+'searchInput')
     .then((result) => {
       console.log(result.data.results);
       this.films = result.data.results;
@@ -35,7 +35,7 @@ export default {
     .catch((error) => {
       console.warn(error);
     })
-  }
+  },
   },
 
   //APPENA CREO L'APPLICAZIONE CHIAMO LA FUNZIONE
