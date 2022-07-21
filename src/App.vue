@@ -8,7 +8,7 @@
 <script>
 import Header from './components/Header.vue';
 import Main from './components/Main.vue';
-//import axios from 'axios';
+import axios from 'axios';
 
 export default {
   name: 'App',
@@ -19,34 +19,29 @@ export default {
 
   data: function() {
     return{
-      films : [
-        '1',
-        '2',
-        '3',
-      ],
-
-      apiUrl : '',
+      films : [],
+      apiUrl : 'https://api.themoviedb.org/3/search/movie?api_key=d2c0643db92db08a509446619d6878b8&query=ritorno',
     }
   },
 
-  // methods:{
-  //   //CHIAMATA ALL'API ATTRAVERSO AXIOS
-  // getFilms: function(){
-  //   axios.get(this.apiUrl)
-  //   .then((result) => {
-  //     console.log(result);
-  //     this.films = result;
-  //   })
-  //   .catch((error) => {
-  //     console.warn(error);
-  //   })
-  // }
-  // },
+  methods:{
+    //CHIAMATA ALL'API ATTRAVERSO AXIOS
+  getFilms: function(){
+    axios.get(this.apiUrl)
+    .then((result) => {
+      console.log(result.data.results);
+      this.films = result.data.results;
+    })
+    .catch((error) => {
+      console.warn(error);
+    })
+  }
+  },
 
-  // //APPENA CREO L'APPLICAZIONE CHIAMO LA FUNZIONE
-  // created(){
-  //   this.getFilms();
-  // },
+  //APPENA CREO L'APPLICAZIONE CHIAMO LA FUNZIONE
+  created(){
+    this.getFilms();
+  },
 
 }
 </script>

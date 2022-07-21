@@ -1,10 +1,10 @@
 <template>
   <div>
     <ul>
-        <li>Titolo</li>
-        <li>Titolo Originale</li>
-        <li>Lingua</li>
-        <li>Voto</li>
+        <li> {{ film.title }} </li>
+        <li> {{ film.original_title }} </li>
+        <li> {{ film.original_language }} </li>
+        <li> {{ film.vote_average }} </li>
     </ul>
   </div>
 </template>
