@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header :searchFilm="searchFilm" @selectedFilm="updateSearchFilm(searchInput)"/>
+    <Header @selectedFilm="getFilms"/>
     <Main :films="films" />
   </div>
 </template>
@@ -26,15 +26,16 @@ export default {
 
   methods:{
     //CHIAMATA ALL'API ATTRAVERSO AXIOS
-  getFilms: function(){
-    axios.get(this.apiUrl+'searchInput')
-    .then((result) => {
-      console.log(result.data.results);
-      this.films = result.data.results;
-    })
-    .catch((error) => {
-      console.warn(error);
-    })
+  getFilms: function(inputSearch){
+      //console.log(inputSearch)
+      axios.get(this.apiUrl+inputSearch)
+      .then((result) => {
+        console.log(result.data.results);
+        this.films = result.data.results;
+      })
+      .catch((error) => {
+        console.warn(error);
+      })
   },
   },
 

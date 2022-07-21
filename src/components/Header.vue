@@ -9,7 +9,7 @@
               placeholder="Search"
               aria-label="Search"
               v-model="searchInput"
-              @keyup.enter="(updateSearchFilm(searchInput))"
+              @keyup.enter="$emit('selectedFilm', searchInput)"
             />
             <button class="btn btn-outline-success" type="submit" @click.prevent=''>
               Search
@@ -22,10 +22,6 @@
 
 <script>
 export default {
-  props: [
-    'searchFilm'
-  ],
-
   data: function(){
     return{
       searchInput:'',
@@ -37,11 +33,6 @@ export default {
       console.log(string);
     },
   },
-
-  updateSearchFilm(search){
-       this.$emit('selectedFilm', search);
-  },
-
 };
 </script>
 
