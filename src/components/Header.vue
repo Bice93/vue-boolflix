@@ -9,7 +9,7 @@
               placeholder="Search"
               aria-label="Search"
               v-model="searchInput"
-              @keyup.enter="$emit('selectedFilm', searchInput)"
+              @keyup.enter="(updateSearchFilm(searchInput))"
             />
             <button class="btn btn-outline-success" type="submit" @click.prevent=''>
               Search
@@ -37,6 +37,11 @@ export default {
       console.log(string);
     },
   },
+
+  updateSearchFilm(search){
+       this.$emit('selectedFilm', search);
+  },
+
 };
 </script>
 
