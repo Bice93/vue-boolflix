@@ -9,9 +9,13 @@
               placeholder="Search"
               aria-label="Search"
               v-model="searchInput"
-              @keyup.enter="$emit('selected-film', searchInput)"
+              @keyup.enter="$emit('selected-film', searchInput), 
+              $emit('selected-series', searchInput)"
             />
-            <button class="btn btn-outline-success" type="submit" @click.prevent="$emit('selectedFilm', searchInput)">
+            
+            <button class="btn btn-outline-success" type="submit" 
+            @click.prevent="$emit('selected-film', searchInput),
+             $emit('selected-series', searchInput)">
               Search
             </button>
           </form>
