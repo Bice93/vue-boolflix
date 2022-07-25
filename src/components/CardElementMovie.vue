@@ -9,7 +9,7 @@
       <div class="info_card py-5">
         <ul>
           <li><span class="fw-bold">Titolo: </span> {{ movie.name }}</li>
-          <li>
+          <li v-if="movie.original_movie && movie.original_title != movie.name">
             <span class="fw-bold">Titolo Originale: </span>
             {{ movie.original_movie }}
           </li>
@@ -35,8 +35,8 @@
             ></i>
           </li>
 
-           <li>
-            <span class="fw-bold">Overview: </span> 
+           <li v-if="movie.overview" class="ms_overview">
+            <span class="fw-bold fs-6">Overview: </span> 
             {{ movie.overview}} 
           </li>
         </ul>

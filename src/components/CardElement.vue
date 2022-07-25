@@ -9,7 +9,7 @@
       <div class="info_card py-5">
         <ul>
           <li><span class="fw-bold">Titolo: </span> {{ film.title }}</li>
-          <li>
+          <li v-if="film.original_movie && film.original_title != film.title">
             <span class="fw-bold">Titolo Originale: </span>
             {{ film.original_title }}
           </li>
@@ -34,8 +34,8 @@
               :class="n <= takeVotes(film.vote_average) ? 'fas' : 'far'"
             ></i>
           </li>
-          <li>
-            <span class="fw-bold">Overview: </span> 
+          <li  v-if="film.overview" class="ms_overview">
+            <span class="fw-bold fs-6">Overview: </span> 
             {{ film.overview}} 
           </li>
         </ul>
@@ -111,6 +111,10 @@ export default {
 
   ul {
     list-style: none;
+
+      li{
+        margin: 3px 0;
+      }
   }
 }
 
@@ -124,5 +128,9 @@ export default {
 
 .ms_star {
   color: gold;
+}
+
+.ms_overview{
+  font-size: 13px;
 }
 </style>
