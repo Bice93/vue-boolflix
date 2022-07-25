@@ -34,6 +34,11 @@
               :class="n <= takeVotes(movie.vote_average) ? 'fas' : 'far'"
             ></i>
           </li>
+
+           <li>
+            <span class="fw-bold">Overview: </span> 
+            {{ movie.overview}} 
+          </li>
         </ul>
       </div>
     </div>

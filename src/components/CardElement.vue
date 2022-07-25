@@ -34,6 +34,10 @@
               :class="n <= takeVotes(film.vote_average) ? 'fas' : 'far'"
             ></i>
           </li>
+          <li>
+            <span class="fw-bold">Overview: </span> 
+            {{ film.overview}} 
+          </li>
         </ul>
       </div>
     </div>
@@ -95,6 +99,7 @@ export default {
 }
 
 .info_card {
+  text-align: start;
   width: 100%;
   height: 100%;
   background-color: black;
